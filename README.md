@@ -26,3 +26,32 @@ for(ll in 1:100){
 tempx<-seq(-4,8,0.01)
 lines(tempx,pnorm(tempx,2,2),"l")
 ```
+
+
+```
+##########################
+## sample from marginal ##
+##########################
+
+## Method 1
+
+# Let pi be DP(22,N(2,4))
+# sample F~pi
+# then draw X1,...,Xn from F
+# Marginal means F|pi
+
+
+## Method 2
+
+# 
+#
+#
+
+###########################
+## sample from posterior ##
+###########################
+
+## pi|X1,...,Xn
+
+
+```
