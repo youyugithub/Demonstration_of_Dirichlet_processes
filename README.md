@@ -43,15 +43,34 @@ lines(tempx,pnorm(tempx,2,2),"l")
 
 ## Method 2
 
-# 
-#
-#
+# Chinese restaurant process
 
+xvec<-numeric(1000)
+xvec[1]<-rnorm(1,2,2)
+for(ii in 2:length(xvec)){
+  if(runif(1)<(ii-1)/(ii-1+22)){
+    xvec[ii]<-sample(xvec[1:(ii-1)],1)
+  }else{
+    xvec[ii]<-rnorm(1,2,2)
+  }
+}
+
+hist(xvec)
+
+idx<-order(xvec)
+sfun<-stepfun(xvec[idx],seq(0,1,0.001))
+plot(sfun,col="gray")
+```
+
+```
 ###########################
 ## sample from posterior ##
 ###########################
 
 ## pi|X1,...,Xn
 
-
+# X1,...,Xn ~ F
+# F ~ pi = DP(alpha,F0)
+# ==> pi|X1,..,Xn ~ DP(alpha+n,Fhat)
+#     where Fhat=n/(n+alpha)*Fn+alpha/(n+alpha)*F0
 ```
